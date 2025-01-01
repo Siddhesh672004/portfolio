@@ -15,11 +15,6 @@ import {
     git,
     figma,
     docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
-    carrent,
     jobit,
     tripguide,
     threejs,
@@ -28,6 +23,12 @@ import {
   import geeks from "../assets/geeks.png";
   import itihaasa from "../assets/itihaasa.png";
   import sumago from "../assets/sumago.png";
+  import project1 from "../assets/project1.png";
+  import project2 from "../assets/project2.png";
+  import project3 from "../assets/project3.png";
+
+
+
   export const navLinks = [
     {
       id: "about",
@@ -114,6 +115,48 @@ import {
     {
       name: "docker",
       icon: docker,
+    },
+  ];
+
+  const educations = [
+    {
+      title: "SSC",
+      company_name: "A. T. Zambare Vidyalaya, Jalgaon",
+      icon: sumago,
+      iconBg: "#383E56",
+      date: "March 2020 - April 2021",
+      points: [
+        "Front-end Development: Developed responsive interfaces using HTML, CSS, and JavaScript.",
+        "Back-end Development: Implemented server-side functionality with PHP and jQuery.",
+        "Database Integration: Worked with MySQL to design and integrate databases for seamless data management.",
+        "Project Contribution: Contributed to a car rental platform, enhancing user experience and performance.",
+      ],
+    },
+    {
+      title: "Diploma",
+      company_name: "Govt. Polytechnic, Jalgaon",
+      icon: itihaasa,
+      iconBg: "#E6DEDD",
+      date: "Jan 2021 - Feb 2022",
+      points: [
+        "Backend Development: Developed backend features using Node.js and MongoDB, and integrated APIs for authentication and data management.",
+        "Performance Optimization: Improved website performance, reducing response time by 30%.",
+        "API Integration: Integrated third-party APIs for enhanced functionality and data handling.",
+        "Collaboration: Worked closely with front-end developers using React for seamless backend-front-end integration.",
+      ],
+    },
+    {
+      title: "Bachloer of Technology",
+      company_name: "Dr. D. Y. Patil IEMR, Akurdi",
+      icon: geeks,
+      iconBg: "#383E56",
+      date: "Jan 2022 - Jan 2023",
+      points: [
+        "Full-Stack Development: Gained hands-on experience in building applications using HTML, CSS, JavaScript, React.js, Node.js, and MongoDB.",
+        "Version Control: Utilized Git and GitHub for efficient code management and collaboration",
+        "Front-End Expertise: Designed dynamic and responsive user interfaces using React.js.",
+        "Back-End Integration: Developed and integrated server-side functionality with Node.js and MongoDB to ensure seamless performance.",
+      ],
     },
   ];
   
@@ -214,7 +257,7 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
+      image: project1,
       source_code_link: "#",
     },
     {
@@ -235,7 +278,7 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
+      image: project2,
       source_code_link: "https://github.com/Siddhesh672004/weather-app",
     },
     {
@@ -256,9 +299,9 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
+      image: project3,
       source_code_link: "#",
     },
   ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  export { services, technologies, educations, experiences, testimonials, projects };
