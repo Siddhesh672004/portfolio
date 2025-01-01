@@ -20,6 +20,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",
+        "black-gradient": "linear-gradient(90deg, #000000, #333333)",
       },
     },
   },

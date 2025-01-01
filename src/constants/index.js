@@ -24,7 +24,10 @@ import {
     tripguide,
     threejs,
   } from "../assets";
-  
+
+  import geeks from "../assets/geeks.png";
+  import itihaasa from "../assets/itihaasa.png";
+  import sumago from "../assets/sumago.png";
   export const navLinks = [
     {
       id: "about",
@@ -42,11 +45,11 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
+      title: "Full Stack Developer",
       icon: web,
     },
     {
-      title: "React Native Developer",
+      title: " Problem Solving",
       icon: mobile,
     },
     {
@@ -54,7 +57,7 @@ import {
       icon: backend,
     },
     {
-      title: "Content Creator",
+      title: "Technical Innovator",
       icon: creator,
     },
   ];
@@ -116,55 +119,42 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
+      title: "Web Developer",
+      company_name: "Sumago Infotech Pvt Ltd",
+      icon: sumago,
       iconBg: "#383E56",
       date: "March 2020 - April 2021",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Front-end Development: Developed responsive interfaces using HTML, CSS, and JavaScript.",
+        "Back-end Development: Implemented server-side functionality with PHP and jQuery.",
+        "Database Integration: Worked with MySQL to design and integrate databases for seamless data management.",
+        "Project Contribution: Contributed to a car rental platform, enhancing user experience and performance.",
       ],
     },
     {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "Front-end & Back-end Developer",
+      company_name: "Iitihaasa",
+      icon: itihaasa,
       iconBg: "#E6DEDD",
       date: "Jan 2021 - Feb 2022",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Backend Development: Developed backend features using Node.js and MongoDB, and integrated APIs for authentication and data management.",
+        "Performance Optimization: Improved website performance, reducing response time by 30%.",
+        "API Integration: Integrated third-party APIs for enhanced functionality and data handling.",
+        "Collaboration: Worked closely with front-end developers using React for seamless backend-front-end integration.",
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
+      title: "Full Stack Developer",
+      company_name: "Geeksforgeeks",
+      icon: geeks,
       iconBg: "#383E56",
       date: "Jan 2022 - Jan 2023",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
-      iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Full-Stack Development: Gained hands-on experience in building applications using HTML, CSS, JavaScript, React.js, Node.js, and MongoDB.",
+        "Version Control: Utilized Git and GitHub for efficient code management and collaboration",
+        "Front-End Expertise: Designed dynamic and responsive user interfaces using React.js.",
+        "Back-End Integration: Developed and integrated server-side functionality with Node.js and MongoDB to ensure seamless performance.",
       ],
     },
   ];
@@ -195,61 +185,49 @@ import {
       image: "https://randomuser.me/api/portraits/women/6.jpg",
     },
   ];
+
+  // const contactme =[
+  //   {
+  //     github_url: "https://github.com/Siddhesh672004",
+  //     linkedin_url: "https://www.linkedin.com/in/siddhesh-chaudhari-117551294/",
+  //     leetcode_url: "https://leetcode.com/u/Siddhesh_Chaudharii/",
+  //     g4g_url: "https://www.geeksforgeeks.org/user/siddheshsgmr/",
+  //   },
+  // ];
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Creative ScrapYard",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Creative Scrapyard is an innovative platform showcasing upcycling artistry, offering a space to explore, engage, and contribute to transforming discarded items into creative treasures.",
       tags: [
         {
-          name: "react",
+          name: "html",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "php",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "mysql",
           color: "pink-text-gradient",
         },
       ],
       image: carrent,
-      source_code_link: "https://github.com/",
+      source_code_link: "#",
     },
     {
-      name: "Job IT",
+      name: "Weather App",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Created a weather app using React and the OpenWeatherMap API, providing real-time weather updates, forecasts, and an intuitive user interface for a seamless weather tracking experience.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
+          name: "openweathermap",
           color: "green-text-gradient",
         },
         {
@@ -257,8 +235,29 @@ import {
           color: "pink-text-gradient",
         },
       ],
+      image: jobit,
+      source_code_link: "https://github.com/Siddhesh672004/weather-app",
+    },
+    {
+      name: "ShopSphere",
+      description:
+        "Our e-commerce app utilizes React.js for dynamic user interfaces, offering a seamless shopping experience with intuitive navigation and a robust platform to facilitate smooth transactions for buyers and sellers.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "boostrap",
+          color: "green-text-gradient",
+        },
+        {
+          name: "redux",
+          color: "pink-text-gradient",
+        },
+      ],
       image: tripguide,
-      source_code_link: "https://github.com/",
+      source_code_link: "#",
     },
   ];
   

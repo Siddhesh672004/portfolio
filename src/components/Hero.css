@@ -1,0 +1,5 @@
+.black-gradient1 {
+    /* Ensure no pointer-events: none is applied */
+    pointer-events: auto !important;
+    border: 1px solid red;
+  }
