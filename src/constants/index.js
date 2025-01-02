@@ -26,6 +26,9 @@ import {
   import project1 from "../assets/project1.png";
   import project2 from "../assets/project2.png";
   import project3 from "../assets/project3.png";
+  import school from "../assets/school.png";
+  import diploma from "../assets/diploma.png";
+  import college from "../assets/college.jpeg";
 
 
 
@@ -33,6 +36,10 @@ import {
     {
       id: "about",
       title: "About",
+    },
+    {
+      id: "education",
+      title: "Education",
     },
     {
       id: "work",
@@ -120,42 +127,40 @@ import {
 
   const educations = [
     {
-      title: "SSC",
-      company_name: "A. T. Zambare Vidyalaya, Jalgaon",
-      icon: sumago,
+      title: "A. T. Zambare Vidyalaya, Jalgaon",
+      company_name: "SSC",
+      icon: school,
       iconBg: "#383E56",
-      date: "March 2020 - April 2021",
+      date: "March 2020",
       points: [
-        "Front-end Development: Developed responsive interfaces using HTML, CSS, and JavaScript.",
-        "Back-end Development: Implemented server-side functionality with PHP and jQuery.",
-        "Database Integration: Worked with MySQL to design and integrate databases for seamless data management.",
-        "Project Contribution: Contributed to a car rental platform, enhancing user experience and performance.",
+        "March 2020",
+        "Grade: 94.20%",
+        "I have completed my class 10th education at A. T. Zambare Madhyamik Vidyalaya, Jalgaon.",
       ],
     },
     {
-      title: "Diploma",
-      company_name: "Govt. Polytechnic, Jalgaon",
-      icon: itihaasa,
+      title: "Government Polytechnic, Jalgaon",
+      company_name: "Diploma",
+      icon: diploma,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "Dec 2020 - Aug 2023",
       points: [
-        "Backend Development: Developed backend features using Node.js and MongoDB, and integrated APIs for authentication and data management.",
-        "Performance Optimization: Improved website performance, reducing response time by 30%.",
-        "API Integration: Integrated third-party APIs for enhanced functionality and data handling.",
-        "Collaboration: Worked closely with front-end developers using React for seamless backend-front-end integration.",
+        "Branch: Computer Engineering",
+        "Learned different programming languages like C, C++, Java, Python, etc .",
+        "Studied core concepts of technology, including DBMS, Computer Networks, and Software Engineering.",
+        "Grade: 87.49%",
       ],
     },
     {
-      title: "Bachloer of Technology",
-      company_name: "Dr. D. Y. Patil IEMR, Akurdi",
-      icon: geeks,
+      title: "Dr. D. Y. Patil Institute of Engineering, Management and Research, Akurdi, Pune",
+      company_name: "Bachelor of Technology - Btech.",
+      icon: college,
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
+      date: "Sept 2023 - May 2026",
       points: [
-        "Full-Stack Development: Gained hands-on experience in building applications using HTML, CSS, JavaScript, React.js, Node.js, and MongoDB.",
-        "Version Control: Utilized Git and GitHub for efficient code management and collaboration",
-        "Front-End Expertise: Designed dynamic and responsive user interfaces using React.js.",
-        "Back-End Integration: Developed and integrated server-side functionality with Node.js and MongoDB to ensure seamless performance.",
+        "Branch: AI & Data Science Engineering",
+        "I am currently pursuing a Bachelor's degree in AI & Data Science Engineering at Dr. D. Y. Patil Institute of Engineering, Management and Research, Akurdi, Pune.",
+        "Grade: 9.07",
       ],
     },
   ];
@@ -166,7 +171,7 @@ import {
       company_name: "Sumago Infotech Pvt Ltd",
       icon: sumago,
       iconBg: "#383E56",
-      date: "March 2020 - April 2021",
+      date: "July 2022 - Aug 2022",
       points: [
         "Front-end Development: Developed responsive interfaces using HTML, CSS, and JavaScript.",
         "Back-end Development: Implemented server-side functionality with PHP and jQuery.",
@@ -179,7 +184,7 @@ import {
       company_name: "Iitihaasa",
       icon: itihaasa,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "Oct 2023 - Nov 2024",
       points: [
         "Backend Development: Developed backend features using Node.js and MongoDB, and integrated APIs for authentication and data management.",
         "Performance Optimization: Improved website performance, reducing response time by 30%.",
@@ -192,7 +197,7 @@ import {
       company_name: "Geeksforgeeks",
       icon: geeks,
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
+      date: "Aug 2024 - Dec 2024",
       points: [
         "Full-Stack Development: Gained hands-on experience in building applications using HTML, CSS, JavaScript, React.js, Node.js, and MongoDB.",
         "Version Control: Utilized Git and GitHub for efficient code management and collaboration",
