@@ -66,7 +66,7 @@ const Education = () => {
       <h2 className={styles.sectionHeadText}> Education. </h2>
     </motion.div>
 
-    <div className="mt-20 flex flex-col">
+    <div className="mt-8 flex flex-col">
     <VerticalTimeline>
           {educations.map((experience, index) => (
             <EducationCard
