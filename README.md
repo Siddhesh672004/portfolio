@@ -17,18 +17,6 @@ A modern, responsive, and visually engaging portfolio built with **React.js**, s
 - **3D & Animation:** Three.js, React Three Fiber, Drei, Framer Motion
 - **Utilities:** EmailJS (form handling), Vite (build tool)
 
-
-## 🖼️ Screenshots
-
-![Homepage](public/screenshots/homepage.png)
-*Home Section – 3D Hero*
-
-![Projects](public/screenshots/projects.png)
-*Projects Showcase*
-
-![Contact](public/screenshots/contact.png)
-*Animated Contact Form with EmailJS*
-
 📁 Project Structure
 portfolio/
 ├── public/
