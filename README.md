@@ -1,8 +1,8 @@
-💼 Developer Portfolio
+# 💼 Developer Portfolio
 
 A modern, responsive, and visually engaging portfolio built with **React.js**, showcasing 3D visuals, interactive UI, and personal projects. Designed to demonstrate frontend and backend web development skills using current industry standards.
 
-🚀 Features
+## 🚀 Features
 
 - 3D Hero Section using **Three.js**, **React Three Fiber**, and **Drei**
 - Responsive design with **Tailwind CSS** and **Bootstrap**
@@ -11,41 +11,61 @@ A modern, responsive, and visually engaging portfolio built with **React.js**, s
 - Clean, component-based architecture using **React SPA**
 - Performance-optimized build setup with **Vite**
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 - **Frontend:** React.js, Tailwind CSS, Bootstrap
 - **3D & Animation:** Three.js, React Three Fiber, Drei, Framer Motion
 - **Utilities:** EmailJS (form handling), Vite (build tool)
 
-📁 Project Structure
+## 📁 Project Structure
+```bash
 portfolio/
 ├── public/
-│ ├── assets/ # Images, 3D models
-│ └── screenshots/ # Screenshots for README
+│ ├── assets/ 
+│ └── screenshots/
 ├── src/
-│ ├── components/ # Reusable components
-│ ├── pages/ # Sections like About, Contact, Projects
-│ ├── App.jsx # Main app container
-│ └── main.jsx # React entry point
+│ ├── components/ 
+│ ├── pages/ 
+│ ├── App.jsx 
+│ └── main.jsx 
 ├── index.html
 ├── tailwind.config.js
 ├── vite.config.js
 └── README.md
+```
 
-🛠️ Setup Instructions
+### Screenshot
+
+![Profile Section](./public/Profile.png)
+
+![Projects Section](./public/Projects.png)
+
+![Github Section](./public/Github.png)
+
+
+## 🛠️ Setup Instructions
 
 1. **Clone the repository**
+```bash
 git clone https://github.com/Siddhesh672004/portfolio.git
 cd portfolio
+```
 
 2. Install dependencies
+```bash
 npm install
+```
 
 3. Run the development server
+```bash
 npm run dev
+```
 
-4. Build for production
+5. Build for production
+```bash
 npm run build
+```
 
-[Live Demo](https://siddhesh-chaudhari.web.app/)
+#### [🚀 View Live Demo](https://siddhesh-chaudhari.web.app/)
+
 
