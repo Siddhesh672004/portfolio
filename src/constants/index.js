@@ -38,10 +38,6 @@ import {
       title: "About",
     },
     {
-      id: "education",
-      title: "Education",
-    },
-    {
       id: "work",
       title: "Experience",
     },
