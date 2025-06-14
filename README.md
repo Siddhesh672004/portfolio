@@ -1,8 +1,51 @@
-# React + Vite
+💼 Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and visually engaging portfolio built with **React.js**, showcasing 3D visuals, interactive UI, and personal projects. Designed to demonstrate frontend and backend web development skills using current industry standards.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 3D Hero Section using **Three.js**, **React Three Fiber**, and **Drei**
+- Responsive design with **Tailwind CSS** and **Bootstrap**
+- Smooth animations and transitions using **Framer Motion**
+- Contact form with real-time submission via **EmailJS**
+- Clean, component-based architecture using **React SPA**
+- Performance-optimized build setup with **Vite**
+
+🛠️ Tech Stack
+
+- **Frontend:** React.js, Tailwind CSS, Bootstrap
+- **3D & Animation:** Three.js, React Three Fiber, Drei, Framer Motion
+- **Utilities:** EmailJS (form handling), Vite (build tool)
+
+📁 Project Structure
+portfolio/
+├── public/
+│ ├── assets/ # Images, 3D models
+│ └── screenshots/ # Screenshots for README
+├── src/
+│ ├── components/ # Reusable components
+│ ├── pages/ # Sections like About, Contact, Projects
+│ ├── App.jsx # Main app container
+│ └── main.jsx # React entry point
+├── index.html
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+
+🛠️ Setup Instructions
+
+1. **Clone the repository**
+git clone https://github.com/Siddhesh672004/portfolio.git
+cd portfolio
+
+2. Install dependencies
+npm install
+
+3. Run the development server
+npm run dev
+
+4. Build for production
+npm run build
+
+[Live Demo](https://siddhesh-chaudhari.web.app/)
+
