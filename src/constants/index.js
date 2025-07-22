@@ -26,6 +26,10 @@ import {
   import project1 from "../assets/project1.png";
   import project2 from "../assets/project2.png";
   import project3 from "../assets/project3.png";
+  import project4 from "../assets/project4.png";
+  import project5 from "../assets/project5.png";
+  import project6 from "../assets/project6.png";
+
   import school from "../assets/school.png";
   import diploma from "../assets/diploma.png";
   import college from "../assets/college.jpeg";
@@ -259,7 +263,7 @@ import {
         },
       ],
       image: project1,
-      source_code_link: "#",
+      source_code_link: "https://github.com/Siddhesh672004/scrap1.git",
     },
     {
       name: "Weather App",
@@ -302,6 +306,69 @@ import {
       ],
       image: project3,
       source_code_link: "#",
+    },
+    {
+      name: "Portfolio Website",
+      description:
+        "Modern, responsive React portfolio with immersive 3D visuals, smooth animations, and a real-time contact form—built using Three.js, Framer Motion, Tailwind CSS, EmailJS, and Vite for optimized performance.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Three.js",
+          color: "green-text-gradient",
+        },
+        {
+          name: "tailwind",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: project6,
+      source_code_link: "https://github.com/Siddhesh672004/portfolio.git",
+    },
+    {
+      name: "Browser Extension",
+      description:
+        "A minimalist Firefox extension built with React, Context API, and localStorage, featuring a daily focus message, persistent to-do list, and motivational quotes—designed for seamless, distraction-free productivity.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "firefox",
+          color: "green-text-gradient",
+        },
+        {
+          name: "context api",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: project5,
+      source_code_link: "https://github.com/Siddhesh672004/browser-extension.git",
+    },
+    {
+      name: "Breeze Travel",
+      description:
+        "This React-based hotel booking app enables secure JWT auth, real-time search/filtering, and responsive UI, reducing browsing time by 35% with efficient MongoDB data management.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Node js",
+          color: "green-text-gradient",
+        },
+        {
+          name: "mongodb",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: project4,
+      source_code_link: "https://github.com/Siddhesh672004/Breeze-Travel.git",
     },
   ];
   
