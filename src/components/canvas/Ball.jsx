@@ -10,25 +10,29 @@ import {
 
 import CanvasLoader from "../Loader";
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const Ball = ({ imgUrl }) => {
+  const [decal] = useTexture([imgUrl]);
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+    <Float
+      speed={2} // Controls floating speed
+      rotationIntensity={1.5} // Rotation motion
+      floatIntensity={2.5} // Up-down floating
+    >
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[0, 0, 0.5]} />
+      <mesh castShadow receiveShadow scale={2.25}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color='#fff8eb'
+          color="#fff8eb"
+          flatShading
           polygonOffset
           polygonOffsetFactor={-5}
-          flatShading
         />
         <Decal
           position={[0, 0, 1]}
-          rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1}
+          rotation={[2 * Math.PI, 0, 0]}
+          scale={0.8}
           map={decal}
           flatShading
         />
@@ -40,7 +44,7 @@ const Ball = (props) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop='demand'
+      frameloop="always" // Changed from 'demand' to 'always' to allow animation
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
     >
@@ -48,7 +52,6 @@ const BallCanvas = ({ icon }) => {
         <OrbitControls enableZoom={false} />
         <Ball imgUrl={icon} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );

@@ -8,15 +8,15 @@ const Github = () => {
     <>
       {/* GitHub Contribution Calendar */}
       <div>
-        <row className="flex justify-center pb-5">
+        <div className="flex justify-center pb-5">
           <motion.h1
             variants={fadeIn("", "", 0.1, 1)}
             className="text-6xl font-semibold mb-5"
           >
             Days I <span className="text-purple-500 text-6xl">Code</span>
           </motion.h1>
-        </row>
-        <row className="flex justify-center pb-5">
+        </div>
+        <div className="flex justify-center pb-5">
           <div className="w-full flex justify-center p-4 sm:p-6 md:p-8 overflow-x-hidden">
             <div className="w-full max-w-screen-lg">
               <GitHubCalendar
@@ -28,7 +28,7 @@ const Github = () => {
               /> 
             </div>
           </div>
-        </row>
+        </div>
       </div>
 
       {/* Most Used Languages and GitHub Streak */}

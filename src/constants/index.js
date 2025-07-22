@@ -14,7 +14,7 @@ import {
     mongodb,
     git,
     figma,
-    docker,
+    bootstrap,
     jobit,
     tripguide,
     threejs,
@@ -116,8 +116,8 @@ import {
       icon: figma,
     },
     {
-      name: "docker",
-      icon: docker,
+      name: "bootstrap",
+      icon: bootstrap,
     },
   ];
 

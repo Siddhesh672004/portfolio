@@ -7,8 +7,9 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+import bootstrap from "./tech/bootstrap.png";
 import css from "./tech/css.png";
-import docker from "./tech/docker.png";
+// import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
@@ -40,7 +41,7 @@ export {
   menu,
   close,
   css,
-  docker,
+  bootstrap,
   figma,
   git,
   html,

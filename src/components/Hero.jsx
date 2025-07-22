@@ -32,7 +32,7 @@ const Hero = () => {
           <div className="order-2 lg:order-1 sm:text-left w-full flex flex-col  gap-4 items-center lg:items-start">
             <motion.div>
               <h1 className={`${styles.heroHeadText} text-center sm:text-left text-white pt-`}>
-                Hello, <br /> <h1 className="text-[#915eff]">I'm Siddhesh</h1>
+                Hello, <br /> <span className="text-[#915eff]">I'm Siddhesh</span>
               </h1>
               <div className="text-2xl text-white text-center sm:text-left font-semibold flex gap-2 items-center text-primary">
                 I am a
