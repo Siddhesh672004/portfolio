@@ -1,5 +1,194 @@
-.black-gradient1 {
-    /* Ensure no pointer-events: none is applied */
-    pointer-events: auto !important;
-    border: 1px solid red;
+/* Mobile responsiveness fix - ensure proper spacing from navbar */
+@media (max-width: 768px) {
+  section#About {
+    padding-top: 100px !important; /* Adjust based on your navbar height */
+    min-height: calc(100vh - 80px);
   }
+}
+
+@media (max-width: 640px) {
+  section#About {
+    padding-top: 120px !important;
+    min-height: calc(100vh - 100px);
+  }
+}
+
+/* Enhanced spinning ring around avatar */
+.hero-ring {
+  background: conic-gradient(
+    from 0deg,
+    #915eff 0deg 120deg,
+    transparent 120deg 240deg,
+    #ff2a95 240deg 360deg
+  );
+  filter: blur(4px);
+  animation: rotateRing 6s linear infinite;
+}
+
+/* Pulse effect for avatar */
+.hero-pulse {
+  background: radial-gradient(circle, rgba(145, 94, 255, 0.3) 0%, transparent 70%);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes rotateRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.05); opacity: 0.3; }
+}
+
+/* Spinning slower to avoid distraction */
+.animate-spin-slow {
+  animation-duration: 8s;
+}
+
+/* Optimized grid background for mobile */
+.hero-grid:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px;
+  background-position: 0 0, 30px 30px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+}
+
+/* Mobile optimization for grid */
+@media (max-width: 768px) {
+  .hero-grid:before {
+    background-size: 40px 40px, 40px 40px;
+    background-position: 0 0, 20px 20px;
+    opacity: 0.7;
+  }
+}
+
+/* Enhanced CTA shine effect */
+.cta-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translateX(-100%) skewX(-20deg);
+  transition: opacity 0.4s, transform 0.6s;
+}
+.cta-btn:hover::after {
+  opacity: 1;
+  transform: translateX(200%) skewX(-20deg);
+}
+
+/* Enhanced social icons with multiple effects */
+.social-icon-enhanced {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon-enhanced:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Ripple effect */
+.ripple-effect {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+}
+
+.social-icon-enhanced:hover .ripple-effect {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Glow effect */
+.glow-effect {
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Shine effect */
+.shine-effect {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.social-icon-enhanced:hover .shine-effect {
+  transform: translateX(100%) rotate(45deg);
+}
+
+/* Floating animation for social icons */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.social-icon-enhanced:nth-child(1) { animation: float 3s ease-in-out infinite; }
+.social-icon-enhanced:nth-child(2) { animation: float 3s ease-in-out infinite 0.5s; }
+.social-icon-enhanced:nth-child(3) { animation: float 3s ease-in-out infinite 1s; }
+.social-icon-enhanced:nth-child(4) { animation: float 3s ease-in-out infinite 1.5s; }
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring,
+  .hero-pulse,
+  .ripple-effect,
+  .social-icon-enhanced {
+    animation: none;
+  }
+  
+  .hero-grid:before {
+    display: none;
+  }
+}
+
+/* Prevent layout shift */
+.hero-ring,
+.hero-pulse,
+.ripple-effect,
+.glow-effect,
+.shine-effect {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Additional mobile responsiveness */
+@media (max-width: 480px) {
+  .social-icon-enhanced {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .social-icon-enhanced img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}

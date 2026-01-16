@@ -4,6 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add to your global CSS file */
+.card-img_hover {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-img_hover:hover,
+.card-img_hover:focus {
+  opacity: 1;
+}
+
+/* Mobile specific styles */
+@media (max-width: 640px) {
+  .card-img_hover {
+    opacity: 1; /* Always show on mobile */
+  }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+  .grid {
+    padding: 0 1rem;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;

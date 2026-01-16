@@ -13,6 +13,8 @@ import {
 } from "./components";
 import Github from "./components/Github";
 import Education from "./components/Educaion.jsx";
+import Hackathons from "./components/Hackathons.jsx";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -28,10 +30,12 @@ const App = () => {
       <Experience />
       <Tech />
       <Works />
+      <Hackathons />
       {/* <Feedbacks/> */}
       <div className="relative z-0">
         <Contact />
         <StarsCanvas />
+        
       </div>
     </BrowserRouter>
   );

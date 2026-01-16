@@ -1,0 +1,28 @@
+{
+  "short_name": "Siddhesh's Portfolio",
+  "name": "Siddhesh Chaudhari Portfolio Website",
+  "description": "I’m Siddhesh Chaudhari, a full stack MERN developer building scalable web applications. Explore my portfolio, projects, and resume.",
+  "icons": [
+    {
+      "src": "/public/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/public/favicon.ico",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/public/favicon.ico",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

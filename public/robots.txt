@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siddhesh-chaudhari.web.app/sitemap.xml
