@@ -153,9 +153,7 @@ const Contact = () => {
         className="mt-20 pt-12 pb-8 border-t border-[#232631]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-            {/* Logo/Name */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -168,7 +166,6 @@ const Contact = () => {
               <p className="text-secondary text-sm mt-1">Full Stack Developer</p>
             </motion.div>
 
-            {/* Navigation Links */}
             <motion.nav
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +189,6 @@ const Contact = () => {
               ))}
             </motion.nav>
 
-            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -225,17 +221,14 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* Divider */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#915eff] to-transparent mb-6"></div>
 
-          {/* Bottom Section */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center"
           >
-            {/* Copyright */}
             <p className="text-secondary text-sm">
               &copy; 2024 Siddhesh Chaudhari. All rights reserved.
             </p>

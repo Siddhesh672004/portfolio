@@ -15,9 +15,9 @@ const Ball = ({ imgUrl }) => {
 
   return (
     <Float
-      speed={2} // Controls floating speed
-      rotationIntensity={1.5} // Rotation motion
-      floatIntensity={2.5} // Up-down floating
+      speed={2}
+      rotationIntensity={1.5}
+      floatIntensity={2.5}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[0, 0, 0.5]} />
@@ -44,7 +44,7 @@ const Ball = ({ imgUrl }) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop="always" // Changed from 'demand' to 'always' to allow animation
+      frameloop="always"
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
     >

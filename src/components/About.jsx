@@ -175,10 +175,10 @@ const CertificationCarousel = () => {
   const getItemsPerView = () => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
-      if (width >= 1280) return 4;      // xl screens
-      if (width >= 1024) return 3;      // lg screens  
-      if (width >= 640) return 2;       // sm screens
-      return 1;                         // mobile
+      if (width >= 1280) return 4;
+      if (width >= 1024) return 3;
+      if (width >= 640) return 2;
+      return 1;
     }
     return 1;
   };
@@ -212,7 +212,6 @@ const CertificationCarousel = () => {
     setCurrentIndex(Math.min(index, totalSlides - 1));
   };
 
-  // Enhanced touch handlers for mobile swipe
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
     setTouchEnd(null);
@@ -239,7 +238,6 @@ const CertificationCarousel = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-2 xs:px-4 sm:px-6">
-      {/* Carousel Container */}
       <div className="relative overflow-hidden">
         <motion.div
           ref={carouselRef}
@@ -262,9 +260,7 @@ const CertificationCarousel = () => {
         </motion.div>
       </div>
 
-      {/* Navigation Controls */}
       <div className="flex justify-between items-center mt-4 xs:mt-6 sm:mt-8 px-2">
-        {/* Previous Button */}
         <motion.button
           onClick={prevSlide}
           disabled={currentIndex === 0}
@@ -277,7 +273,6 @@ const CertificationCarousel = () => {
           </svg>
         </motion.button>
 
-        {/* Dots Indicator */}
         <div className="flex space-x-1 xs:space-x-1.5 sm:space-x-2 max-w-[150px] xs:max-w-[200px] overflow-x-auto">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <motion.button
@@ -292,7 +287,6 @@ const CertificationCarousel = () => {
           ))}
         </div>
 
-        {/* Next Button */}
         <motion.button
           onClick={nextSlide}
           disabled={currentIndex === totalSlides - 1}
@@ -306,7 +300,6 @@ const CertificationCarousel = () => {
         </motion.button>
       </div>
 
-      {/* Certificate Counter */}
       <div className="text-center mt-2 xs:mt-3 sm:mt-4">
         <span className="text-secondary text-[10px] xs:text-xs sm:text-sm">
           Showing {Math.min(itemsPerView, certifications.length)} of {certifications.length} certifications
@@ -319,7 +312,6 @@ const CertificationCarousel = () => {
 const About = () => {
   return (
     <>
-      {/* Introduction Section */}
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
@@ -336,14 +328,12 @@ const About = () => {
         solutions.
       </motion.p>
 
-      {/* Services Section */}
       <div className='mt-16 xs:mt-18 sm:mt-20 flex flex-wrap gap-6 xs:gap-8 sm:gap-10 justify-center sm:justify-start'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
 
-      {/* Certifications Section with Carousel */}
       <motion.div variants={textVariant()} className="mt-24 xs:mt-28 sm:mt-32">
         <p className={styles.sectionSubText}>Professional Credentials</p>
         <h2 className={styles.sectionHeadText}>Certifications.</h2>

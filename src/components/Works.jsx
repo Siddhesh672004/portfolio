@@ -12,7 +12,6 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
 
-  // Preload image
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
@@ -20,18 +19,18 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
       setImageLoaded(true);
     };
     img.onerror = () => {
-      setImageLoaded(true); // Still show card even if image fails
+      setImageLoaded(true);
     };
     img.src = image;
   }, [image]);
 
   return (
     <motion.div 
-      variants={fadeIn("up", "spring", index * 0.2, 0.75)} // Reduced delay from 0.5 to 0.2
+      variants={fadeIn("up", "spring", index * 0.2, 0.75)}
       className="w-full flex justify-center"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.1 }} // Trigger earlier with less amount needed
+      viewport={{ once: true, amount: 0.1 }}
     >
       <Tilt 
         options={{
@@ -42,14 +41,12 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
         className="bg-tertiary p-5 rounded-2xl w-full max-w-[360px] min-h-[400px]"
       >
         <div className="relative w-full h-[200px] sm:h-[230px]">
-          {/* Skeleton loader */}
           {!imageLoaded && (
             <div className="w-full h-full bg-gray-700 rounded-2xl animate-pulse flex items-center justify-center">
               <div className="text-gray-500 text-sm">Loading...</div>
             </div>
           )}
           
-          {/* Actual image */}
           {imageSrc && (
             <img
               src={imageSrc}
@@ -99,12 +96,9 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
 }
 
 const Works = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Preload critical images
   useEffect(() => {
     const preloadImages = () => {
-      projects.slice(0, 3).forEach(project => { // Preload first 3 images
+      projects.slice(0, 3).forEach(project => {
         const img = new Image();
         img.src = project.image;
       });
@@ -119,7 +113,7 @@ const Works = () => {
         variants={textVariant()}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
       >
         <p className={styles.sectionSubText}>My Work</p>
         <h2 className={styles.sectionHeadText}> Projects. </h2>
@@ -131,7 +125,7 @@ const Works = () => {
           className="mt-3 text-secondary text-[14px] sm:text-[17px] max-w-3xl leading-[24px] sm:leading-[30px]"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.25 }}
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
@@ -141,10 +135,9 @@ const Works = () => {
         </motion.p>
       </div>
 
-      {/* Container with min-height to prevent layout shift */}
       <div 
         className='mt-10 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-7 w-full'
-        style={{ minHeight: '400px' }} // Prevent layout shift
+        style={{ minHeight: '400px' }}
       >
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />

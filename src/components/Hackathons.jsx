@@ -4,36 +4,34 @@ import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import linkedin from "../assets/linkedin.png";
 
-// Import all hackathon images
 import Hack1 from "../assets/Hackathons/Hack1.jpg";
 import Hack2 from "../assets/Hackathons/Hack2.jpeg";
 import Hack3 from "../assets/Hackathons/Hack3.jpeg";
 import Hack4 from "../assets/Hackathons/Hack4.jpeg";
 
-// Add your hackathon data here with imported images
 const hackathons = [
   {
     name: "Smart India Hackathon 2023",
     description: "Built an AI-powered Android app that helps analyze mental health and supports early diagnosis, designed for a national-level competition to improve wellbeing awareness.",
-    image: Hack1, // Use imported image
+    image: Hack1,
     linkedinUrl: "#"
   },
   {
     name: "Rota Tank 2.0",
     description: "Pitched Scrap Swap, our platform promoting circular economy by exchanging waste materials, at Rota Tank 2.0, learning valuable lessons to improve future presentations.",
-    image: Hack2, // Use imported image
+    image: Hack2,
     linkedinUrl: "https://www.linkedin.com/posts/siddhesh-chaudhari1_racdypiemr-reusability-ideapitching-activity-7176522968754270208-biSq?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdFmGMBAyr2QvM4iyqgOP8fqrPNMjyBc98"
   },
   {
     name: "Smart India Hackathon 2024",
     description: "Competed in SIH 2024 with teams Tech Shield and Code Crafters, developing women safety and deepfake detection solutions; deepfake project ranked top 25 college-wide.",
-    image: Hack3, // Use imported image
+    image: Hack3,
     linkedinUrl: "https://www.linkedin.com/posts/siddhesh-chaudhari1_sih2024-innovation-ai-activity-7234257679534174208-EtXI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdFmGMBAyr2QvM4iyqgOP8fqrPNMjyBc98"
   },
   {
     name: "Codement Hackathon",
     description: "Participated in Codement_24 hackathon with my amazing team at Nutan College, tackling challenges, learning, and celebrating tech innovation and collaboration together.",
-    image: Hack4, // Use imported image
+    image: Hack4,
     linkedinUrl: "https://www.linkedin.com/posts/siddhesh-chaudhari1_codementabr24-ncer-techcommunity-activity-7184953866524737536-7FBw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdFmGMBAyr2QvM4iyqgOP8fqrPNMjyBc98"
   }
 ];
@@ -50,7 +48,6 @@ const HackathonCard = ({ hackathon, index }) => {
       transition={{ delay: index * 0.1, duration: 0.6, type: "spring" }}
       className="group relative bg-tertiary rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
     >
-      {/* Image Container */}
       <div className="relative h-48 sm:h-56 overflow-hidden">
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 animate-pulse flex items-center justify-center">
@@ -78,10 +75,8 @@ const HackathonCard = ({ hackathon, index }) => {
           loading="lazy"
         />
         
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* LinkedIn Link */}
         <motion.a
           href={hackathon.linkedinUrl}
           target="_blank"
@@ -99,7 +94,6 @@ const HackathonCard = ({ hackathon, index }) => {
         </motion.a>
       </div>
 
-      {/* Content */}
       <div className="p-5 sm:p-6">
         <motion.h3 
           className="text-white font-bold text-lg sm:text-xl mb-3 group-hover:text-[#915eff] transition-colors duration-300"
@@ -120,7 +114,6 @@ const HackathonCard = ({ hackathon, index }) => {
         </motion.p>
       </div>
 
-      {/* Hover Border Effect */}
       <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#915eff] rounded-xl transition-colors duration-300 pointer-events-none" />
     </motion.div>
   );
