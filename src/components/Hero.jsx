@@ -1,221 +1,200 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { Tilt } from "react-tilt";
 
 import { styles } from "../styles";
-import profileImage from "../assets/Myself.jpg";
+import LazyMount from "./LazyMount";
 import { github } from "../assets";
 import linkedin from "../assets/linkedin.png";
-import g4g from "../assets/g4g.png";
 import leetcode from "../assets/leetcode.png";
 import resume from "../assets/Siddhesh_Chaudhari_SDE_LogiNext.pdf";
+
+const ComputersCanvas = lazy(() => import("./canvas/Computers"));
 
 const links = {
   github: "https://github.com/Siddhesh672004",
   linkedin: "https://www.linkedin.com/in/siddhesh-chaudhari-117551294/",
   leetcode: "https://leetcode.com/u/Siddhesh_Chaudharii/",
-  g4g: "https://www.geeksforgeeks.org/user/siddheshsgmr/",
 };
 
-const stagger = {
-  hidden: { opacity: 0, y: 30 },
-  show: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.15 * i, type: "spring", stiffness: 80, damping: 20 },
-  }),
+const wordStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+};
+const wordItem = {
+  hidden: { y: 30, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 90, damping: 18 } },
 };
 
 const Hero = () => {
   return (
     <section
-      id="About"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tr from-[#050210] via-[#0f0c22] to-[#050210] pt-20 sm:pt-16 md:pt-0"
+      id="hero"
+      className="relative w-full min-h-screen overflow-hidden pt-28 sm:pt-32 lg:pt-24"
     >
-      {/* Decorative grid glow */}
-      <div className="absolute inset-0 pointer-events-none hero-grid" />
+      {/* Static gradient blobs (CSS only, no JS animation on mobile) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 -left-40 w-[420px] h-[420px] rounded-full opacity-25 blur-[100px] hidden lg:block"
+        style={{ background: "radial-gradient(circle, #00f5d4 0%, transparent 60%)" }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/3 -right-40 w-[360px] h-[360px] rounded-full opacity-20 blur-[100px] hidden lg:block"
+        style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 60%)" }}
+      />
 
-      {/* CONTAINER */}
-      <motion.div
-        initial="hidden"
-        animate="show"
-        className="relative z-10 max-w-[1250px] w-full px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-16"
-      >
-        {/* LEFT TEXT BLOCK */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[calc(100vh-7rem)]">
+        {/* LEFT — text */}
         <motion.div
-          variants={stagger}
-          custom={1}
-          className="flex-1 text-center lg:text-left order-2 lg:order-1"
+          variants={wordStagger}
+          initial="hidden"
+          animate="show"
+          className="lg:col-span-7 flex flex-col gap-6"
         >
-          <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white mb-4"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+          <motion.div variants={wordItem} className="flex">
+            <span className="pill pill-cyan">
+              <span className="relative inline-flex w-2 h-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-pulse-dot" />
+                <span className="relative inline-flex rounded-full w-2 h-2 bg-accent" />
+              </span>
+              Available for Opportunities · 2026
+              <span aria-hidden="true">→</span>
+            </span>
+          </motion.div>
+
+          <motion.h1
+            variants={wordItem}
+            className={`${styles.heroHeadText} text-balance`}
           >
-            Hey&nbsp;there,
-            <br className="hidden sm:block" /> I'm
-            <span className="text-[#915eff]"> Siddhesh</span>
+            Siddhesh
+            <br />
+            <span className="text-gradient">Chaudhari.</span>
           </motion.h1>
 
-          <motion.div 
-            variants={stagger}
-            custom={2}
-            className="mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 flex flex-wrap justify-center lg:justify-start items-center gap-2"
+          <motion.div
+            variants={wordItem}
+            className="flex flex-wrap items-center gap-2 text-[18px] sm:text-[22px] font-sans font-light text-text-secondary"
           >
-            <span>I&nbsp;am&nbsp;a</span>
-            <span className="text-[#915eff] min-w-[200px] sm:min-w-[250px]">
+            <span>I craft</span>
+            <span className="text-accent font-medium min-w-[180px] sm:min-w-[240px]">
               <Typewriter
                 options={{
-                  strings: ["Full-Stack Dev", "Web Designer", "Problem Solver"],
+                  strings: [
+                    "full-stack web apps.",
+                    "AI-powered experiences.",
+                    "scalable React systems.",
+                    "thoughtful interfaces.",
+                  ],
                   autoStart: true,
                   loop: true,
-                  pauseFor: 2000,
-                  deleteSpeed: 50,
+                  pauseFor: 1800,
+                  deleteSpeed: 40,
                 }}
               />
             </span>
           </motion.div>
 
-          <motion.p 
-            variants={stagger}
-            custom={3}
-            className="mt-6 text-base sm:text-lg lg:text-xl text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+          <motion.p
+            variants={wordItem}
+            className="max-w-xl text-text-secondary font-sans font-light text-[15px] sm:text-[17px] leading-relaxed"
           >
-           I create engaging and user-centric digital experiences focused on delivering seamless solutions that simplify and enhance everyday life for users.
+            Final-year B.Tech AI &amp; Data Science engineer building production-grade
+            React, Node.js and ML-driven products. Currently shaping ideas into shipped
+            software, one commit at a time.
           </motion.p>
 
-          {/* CTA BUTTONS */}
-          <motion.div 
-            variants={stagger}
-            custom={4}
-            className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-5"
+          <motion.div
+            variants={wordItem}
+            className="flex flex-wrap items-center gap-3 mt-2"
           >
+            <a href="#works" className="btn-primary">
+              View Projects <span aria-hidden="true">→</span>
+            </a>
             <a
               href={resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center justify-center px-6 sm:px-7 py-3 font-bold text-white rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg cta-btn transform transition-transform hover:scale-105"
+              className="btn-outline"
             >
-              Resume
-            </a>
-
-            <a
-              href="#contact"
-              className="relative inline-flex items-center justify-center px-6 sm:px-7 py-3 font-bold text-[#915eff] rounded-full ring-2 ring-[#915eff] hover:bg-[#915eff]/10 transition-all transform hover:scale-105"
-            >
-              Hire Me
+              Download Resume
             </a>
           </motion.div>
-        </motion.div>
 
-        {/* AVATAR + SOCIALS */}
-        <motion.div
-          variants={stagger}
-          custom={2}
-          className="flex-1 flex flex-col items-center gap-6 lg:gap-8 order-1 lg:order-2 max-w-sm w-full"
-        >
-          {/* Avatar */}
-          <Tilt 
-            options={{
-              max: 15,
-              scale: 1.02,
-              speed: 300,
-              glare: false
-            }}
-          >
-            <motion.div
-              initial={{ y: 30, opacity: 0, scale: 0.8 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 60, duration: 1 }}
-              className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
-            >
-              {/* Enhanced neon ring with pulse effect */}
-              <div className="absolute inset-0 rounded-full hero-ring animate-spin-slow" />
-              <div className="absolute inset-2 rounded-full hero-pulse" />
-              <img
-                src={profileImage}
-                alt="Siddhesh Chaudhari"
-                className="relative z-10 w-full h-full rounded-full object-cover border-4 border-[#915eff] shadow-2xl"
-                loading="eager"
-              />
-            </motion.div>
-          </Tilt>
-
-          {/* Enhanced Social Icons */}
-          <motion.div 
-            variants={stagger}
-            custom={5}
-            className="flex gap-3 sm:gap-4 md:gap-6"
-          >
+          <motion.div variants={wordItem} className="flex items-center gap-4 mt-4">
+            <span className="font-mono-tag text-[11px] uppercase tracking-[0.25em] text-text-secondary/70">
+              Find me
+            </span>
+            <span className="h-px w-8 bg-white/10" />
             {[
-              { 
-                src: github, 
-                link: links.github, 
-                c: "bg-gradient-to-br from-gray-800 to-gray-900", 
-                name: "GitHub",
-                hoverColor: "hover:from-gray-700 hover:to-gray-800"
-              },
-              { 
-                src: linkedin, 
-                link: links.linkedin, 
-                c: "bg-gradient-to-br from-blue-600 to-blue-800", 
-                name: "LinkedIn",
-                hoverColor: "hover:from-blue-500 hover:to-blue-700"
-              },
-              { 
-                src: leetcode, 
-                link: links.leetcode, 
-                c: "bg-gradient-to-br from-yellow-500 to-orange-600", 
-                name: "LeetCode",
-                hoverColor: "hover:from-yellow-400 hover:to-orange-500"
-              },
-              { 
-                src: g4g, 
-                link: links.g4g, 
-                c: "bg-gradient-to-br from-green-500 to-green-700", 
-                name: "GeeksforGeeks",
-                hoverColor: "hover:from-green-400 hover:to-green-600"
-              },
-            ].map(({ src, link, c, name, hoverColor }, idx) => (
-              <motion.a
-                key={idx}
+              { src: github, link: links.github, label: "GitHub" },
+              { src: linkedin, link: links.linkedin, label: "LinkedIn" },
+              { src: leetcode, link: links.leetcode, label: "LeetCode" },
+            ].map(({ src, link, label }) => (
+              <a
+                key={label}
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center ${c} ${hoverColor} social-icon-enhanced overflow-hidden group`}
-                whileHover={{ 
-                  scale: 1.2,
-                  rotate: [0, -10, 10, 0],
-                  transition: { duration: 0.3 }
-                }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + idx * 0.1 }}
-                aria-label={name}
+                aria-label={label}
+                className="w-10 h-10 rounded-full glass flex items-center justify-center transition-all hover:border-accent/60 hover:-translate-y-1"
               >
-                {/* Ripple effect */}
-                <div className="absolute inset-0 rounded-full ripple-effect"></div>
-                
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-full glow-effect opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Icon */}
-                <img 
-                  src={src} 
-                  alt={name}
-                  className="relative z-10 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain transform group-hover:scale-110 transition-transform duration-300" 
-                />
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 rounded-full shine-effect opacity-0 group-hover:opacity-100"></div>
-              </motion.a>
+                <img src={src} alt={label} className="w-4 h-4 object-contain opacity-80" />
+              </a>
             ))}
           </motion.div>
         </motion.div>
-      </motion.div>
+
+        {/* RIGHT — 3D */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
+          className="lg:col-span-5 relative h-[360px] sm:h-[480px] lg:h-[560px] w-full"
+        >
+          <div className="absolute inset-0 rounded-3xl glass overflow-hidden">
+            <LazyMount
+              rootMargin="100px"
+              fallback={
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="font-mono-tag text-[11px] text-text-secondary uppercase tracking-[0.2em]">
+                    rendering scene...
+                  </span>
+                </div>
+              }
+            >
+              <Suspense fallback={null}>
+                <ComputersCanvas />
+              </Suspense>
+            </LazyMount>
+          </div>
+          <div
+            aria-hidden="true"
+            className="absolute -inset-1 rounded-3xl pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(0,245,212,0.15), rgba(124,58,237,0.12))",
+              filter: "blur(40px)",
+              opacity: 0.4,
+              zIndex: -1,
+            }}
+          />
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <span className="font-mono-tag text-[10px] uppercase tracking-[0.3em] text-text-secondary/70">
+          Scroll
+        </span>
+        <a href="#about" aria-label="Scroll to about" className="w-7 h-12 rounded-full border border-white/15 flex items-start justify-center p-1.5">
+          <motion.span
+            animate={{ y: [0, 16, 0], opacity: [1, 0.2, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="block w-1 h-2 rounded-full bg-accent"
+          />
+        </a>
+      </div>
     </section>
   );
 };

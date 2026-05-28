@@ -32,7 +32,6 @@ import PHP from "../assets/certifications/PHP.jpg";
 import Python from "../assets/certifications/Python.jpg";
 import Softaid from "../assets/certifications/softaid.png";
 import sumagoIndustrialTraining from "../assets/certifications/Sumago - Industrial Training.jpg";
-import SumagoBestWebDesigner from "../assets/certifications/Best Web Designer - Sumago.jpg";
 import sumagologo from "../assets/certifications/Sumago.png";
 import dataPlanet from "../assets/certifications/data-planet.png";
 
