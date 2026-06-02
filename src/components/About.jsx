@@ -14,7 +14,7 @@ const ServiceCard = ({ index, title, icon }) => {
     >
       <div className="flex items-start justify-between">
         <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/40 transition-colors">
-          <img src={icon} alt={title} className="w-8 h-8 object-contain" />
+          <img src={icon} alt={title} loading="lazy" decoding="async" className="w-8 h-8 object-contain" />
         </div>
         <span className="font-mono-tag text-[11px] text-text-secondary/60 group-hover:text-accent transition-colors">
           0{index + 1}
@@ -37,7 +37,7 @@ const ServiceCard = ({ index, title, icon }) => {
   );
 };
 
-const CertificationCard = ({ title, issuer, date, badge, certificateImage, index }) => {
+const CertificationCard = ({ title, issuer, date, badge, certificateImage, index, shouldLoadImage }) => {
   const [flipped, setFlipped] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -73,7 +73,7 @@ const CertificationCard = ({ title, issuer, date, badge, certificateImage, index
         >
           <div className="flex items-start justify-between">
             <div className="w-12 h-12 rounded-lg bg-white/95 flex items-center justify-center p-1.5">
-              <img src={badge} alt={issuer} className="w-full h-full object-contain" />
+              <img src={badge} alt={issuer} loading="lazy" decoding="async" className="w-full h-full object-contain" />
             </div>
             <span className="pill pill-cyan">{date.split(" ").pop()}</span>
           </div>
@@ -97,7 +97,11 @@ const CertificationCard = ({ title, issuer, date, badge, certificateImage, index
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <div className="w-full h-full rounded-xl overflow-hidden bg-white/5">
-            <img src={certificateImage} alt={title} className="w-full h-full object-cover" />
+            {shouldLoadImage ? (
+              <img src={certificateImage} alt={title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full" aria-hidden="true" />
+            )}
           </div>
         </div>
       </motion.div>
@@ -142,15 +146,19 @@ const CertificationCarousel = () => {
           animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
           transition={{ duration: 0.55, ease: "easeInOut" }}
         >
-          {certifications.map((c, i) => (
-            <div
-              key={c.title + i}
-              className="flex-shrink-0 px-3"
-              style={{ width: `${100 / itemsPerView}%` }}
-            >
-              <CertificationCard {...c} index={i} />
-            </div>
-          ))}
+          {certifications.map((c, i) => {
+            const shouldLoad =
+              i >= currentIndex - 1 && i <= currentIndex + itemsPerView;
+            return (
+              <div
+                key={c.title + i}
+                className="flex-shrink-0 px-3"
+                style={{ width: `${100 / itemsPerView}%` }}
+              >
+                <CertificationCard {...c} index={i} shouldLoadImage={shouldLoad} />
+              </div>
+            );
+          })}
         </motion.div>
       </div>
 
@@ -170,10 +178,27 @@ const CertificationCarousel = () => {
               key={i}
               onClick={() => setCurrentIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-[2px] rounded-full transition-all ${
-                i === currentIndex ? "w-8 bg-accent" : "w-4 bg-white/20"
-              }`}
-            />
+              style={{
+                padding: "12px 4px",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  display: "block",
+                  width: i === currentIndex ? "24px" : "8px",
+                  height: "3px",
+                  borderRadius: "2px",
+                  background:
+                    i === currentIndex ? "#00F5D4" : "rgba(255,255,255,0.25)",
+                  transition: "width 0.3s ease, background 0.3s ease",
+                }}
+              />
+            </button>
           ))}
         </div>
 

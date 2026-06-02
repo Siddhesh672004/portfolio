@@ -129,13 +129,13 @@ const Contact = () => {
               label="LinkedIn"
               value="/in/siddhesh-chaudhari"
               href={links.linkedin}
-              icon={<img src={linkedin} alt="" className="w-4 h-4 object-contain" />}
+              icon={<img src={linkedin} alt="" loading="lazy" decoding="async" className="w-4 h-4 object-contain" />}
             />
             <ContactRow
               label="GitHub"
               value="@Siddhesh672004"
               href={links.github}
-              icon={<img src={github} alt="" className="w-4 h-4 object-contain" />}
+              icon={<img src={github} alt="" loading="lazy" decoding="async" className="w-4 h-4 object-contain" />}
             />
           </div>
 
@@ -313,7 +313,7 @@ const Contact = () => {
                 className="w-9 h-9 rounded-full glass flex items-center justify-center hover:border-accent/50 hover:-translate-y-1 transition-all"
                 aria-label={name}
               >
-                <img src={src} alt={name} className="w-3.5 h-3.5 object-contain" />
+                <img src={src} alt={name} loading="lazy" decoding="async" className="w-3.5 h-3.5 object-contain" />
               </a>
             ))}
           </div>
