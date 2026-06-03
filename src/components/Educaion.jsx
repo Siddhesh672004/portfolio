@@ -35,6 +35,8 @@ const EducationItem = ({ edu, index, isLast }) => {
               <img
                 src={edu.icon}
                 alt={edu.company_name}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>

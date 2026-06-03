@@ -61,6 +61,8 @@ const ExperienceItem = ({ experience, index, isLast }) => {
               <img
                 src={experience.icon}
                 alt={experience.company_name}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>

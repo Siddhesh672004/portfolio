@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import GitHubCalendar from "react-github-calendar";
 import { motion } from "framer-motion";
 
@@ -6,11 +7,26 @@ import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 
 const Github = () => {
-  // Custom theme to match Obsidian Intelligence palette
   const calendarTheme = {
     light: ["#0d0d14", "#0e3b35", "#0e6157", "#0aaf95", "#00f5d4"],
     dark: ["#0d0d14", "#0e3b35", "#0e6157", "#0aaf95", "#00f5d4"],
   };
+
+  const [blockSize, setBlockSize] = useState(12);
+  const [blockMargin, setBlockMargin] = useState(4);
+  const [fontSize, setFontSize] = useState(14);
+
+  useEffect(() => {
+    const update = () => {
+      const isSmall = window.innerWidth < 640;
+      setBlockSize(isSmall ? 9 : 12);
+      setBlockMargin(isSmall ? 3 : 4);
+      setFontSize(isSmall ? 12 : 14);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   return (
     <>
@@ -46,13 +62,21 @@ const Github = () => {
           </a>
         </div>
 
-        <div className="overflow-x-auto no-scrollbar">
+        <div
+          style={{
+            overflowX: "auto",
+            WebkitOverflowScrolling: "touch",
+            maxWidth: "100%",
+            paddingBottom: "8px",
+          }}
+          className="no-scrollbar"
+        >
           <GitHubCalendar
             username="Siddhesh672004"
-            blockSize={13}
-            blockMargin={5}
+            blockSize={blockSize}
+            blockMargin={blockMargin}
             theme={calendarTheme}
-            fontSize={13}
+            fontSize={fontSize}
             colorScheme="dark"
           />
         </div>
@@ -72,10 +96,11 @@ const Github = () => {
             </span>
           </div>
           <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Siddhesh672004&layout=compact&theme=react&hide_border=true&bg_color=00000000&title_color=00F5D4&text_color=F0F0F0&icon_color=00F5D4"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Siddhesh672004&layout=compact&theme=transparent&title_color=00F5D4&text_color=F0F0F0&border_color=ffffff10&bg_color=00000000"
             alt="Most Used Languages"
             className="w-full mx-auto"
             loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -94,10 +119,11 @@ const Github = () => {
             </a>
           </div>
           <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=Siddhesh672004&theme=react&hide_border=true&background=00000000&currStreakLabel=00F5D4&fire=00F5D4&ring=00F5D4&currStreakNum=F0F0F0&sideNums=F0F0F0&sideLabels=8A8A9A&dates=8A8A9A"
+            src="https://streak-stats.demolab.com/?user=Siddhesh672004&theme=transparent&ring=00F5D4&fire=FF6B35&currStreakLabel=00F5D4&sideLabels=8A8A9A&dates=8A8A9A&currStreakNum=F0F0F0&sideNums=F0F0F0&border=ffffff10&hide_border=false"
             alt="GitHub Streak"
             className="w-full mx-auto"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </motion.div>

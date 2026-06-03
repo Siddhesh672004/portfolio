@@ -89,6 +89,7 @@ const HackCard = ({ hack, index }) => (
         alt={hack.name}
         className="w-full h-full object-cover"
         loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/80 via-transparent to-transparent" />
       <a
@@ -98,7 +99,7 @@ const HackCard = ({ hack, index }) => (
         aria-label={`LinkedIn post for ${hack.name}`}
         className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-[#0077b5] flex items-center justify-center hover:scale-110 transition-transform"
       >
-        <img src={linkedin} alt="" className="w-4 h-4 object-contain" />
+        <img src={linkedin} alt="" loading="lazy" decoding="async" className="w-4 h-4 object-contain" />
       </a>
     </div>
   </motion.article>
