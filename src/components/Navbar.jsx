@@ -42,7 +42,7 @@ const Navbar = () => {
             }}
             className="flex items-center gap-2 pl-1 pr-2"
           >
-            <img src={logo} alt="logo" className="w-7 h-7 object-contain" />
+            <img src={logo} alt="logo" loading="eager" decoding="async" className="w-7 h-7 object-contain" />
             <span className="hidden sm:inline font-display font-bold text-white text-[15px] tracking-tight">
               Siddhesh<span className="text-accent">.</span>
             </span>

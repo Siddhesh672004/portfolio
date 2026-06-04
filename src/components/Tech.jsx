@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
@@ -22,6 +21,7 @@ const Tech = () => {
         src={icon}
         alt={name}
         loading="lazy"
+        decoding="async"
         className="w-5 h-5 object-contain"
       />
       <span className="font-mono-tag text-[12px] text-white whitespace-nowrap">
@@ -69,6 +69,7 @@ const Tech = () => {
               src={t.icon}
               alt={t.name}
               loading="lazy"
+              decoding="async"
               className="w-9 h-9 sm:w-11 sm:h-11 object-contain group-hover:scale-110 transition-transform"
             />
             <span className="font-mono-tag text-[9px] sm:text-[10px] text-text-secondary uppercase tracking-[0.1em] text-center leading-tight">

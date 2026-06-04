@@ -4,6 +4,7 @@ import Typewriter from "typewriter-effect";
 
 import { styles } from "../styles";
 import LazyMount from "./LazyMount";
+import AnimatedCounter from "./AnimatedCounter";
 import { github } from "../assets";
 import linkedin from "../assets/linkedin.png";
 import leetcode from "../assets/leetcode.png";
@@ -66,6 +67,7 @@ const Hero = () => {
           <motion.h1
             variants={wordItem}
             className={`${styles.heroHeadText} text-balance`}
+            style={{ fontSize: "clamp(1.8rem, 7.5vw, 5.5rem)", lineHeight: 1.05 }}
           >
             Siddhesh
             <br />
@@ -139,8 +141,32 @@ const Hero = () => {
                 aria-label={label}
                 className="w-10 h-10 rounded-full glass flex items-center justify-center transition-all hover:border-accent/60 hover:-translate-y-1"
               >
-                <img src={src} alt={label} className="w-4 h-4 object-contain opacity-80" />
+                <img src={src} alt={label} loading="eager" decoding="async" className="w-4 h-4 object-contain opacity-80" />
               </a>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={wordItem}
+            className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-white/[0.07]"
+          >
+            {[
+              { value: 3, suffix: "+", label: "Years Coding" },
+              { value: 6, suffix: "", label: "Projects Shipped" },
+              { value: 10, suffix: "", label: "Certifications" },
+              { value: 2, suffix: "x", label: "SIH Finalist" },
+            ].map(({ value, suffix, label }) => (
+              <div key={label}>
+                <div
+                  className="font-display font-extrabold text-accent"
+                  style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1 }}
+                >
+                  <AnimatedCounter target={value} suffix={suffix} />
+                </div>
+                <div className="text-text-secondary font-sans text-[12px] mt-1">
+                  {label}
+                </div>
+              </div>
             ))}
           </motion.div>
         </motion.div>
