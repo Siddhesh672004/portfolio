@@ -23,15 +23,23 @@ const FeaturedProject = ({ project }) => {
       className="relative w-full glass hover-glow rounded-3xl overflow-hidden group min-h-[420px]"
     >
       {/* Background image */}
-      <div className="absolute inset-0">
+      <div
+        className="absolute inset-0"
+        style={{ aspectRatio: "16/9" }}
+      >
         {loaded && (
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-700"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#050508] via-[#050508]/85 to-transparent" />
+        {/* Desktop gradient: left-to-right */}
+        <div className="absolute inset-0 hidden md:block featured-overlay-desktop" />
+        {/* Mobile gradient: top-to-bottom */}
+        <div className="absolute inset-0 md:hidden featured-overlay-mobile" />
       </div>
 
       {/* Content */}
@@ -74,7 +82,7 @@ const FeaturedProject = ({ project }) => {
             rel="noopener noreferrer"
             className="btn-outline"
           >
-            <img src={github} alt="github" className="w-4 h-4 object-contain invert opacity-80" />
+            <img src={github} alt="github" loading="lazy" decoding="async" className="w-4 h-4 object-contain invert opacity-80" />
             Source
           </a>
         </div>
@@ -116,6 +124,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
             <img
               src={image}
               alt={name}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           )}
@@ -131,7 +141,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
               aria-label={`Source for ${name}`}
               className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center hover:border-accent/50"
             >
-              <img src={github} alt="" className="w-3.5 h-3.5 object-contain" />
+              <img src={github} alt="" loading="lazy" decoding="async" className="w-3.5 h-3.5 object-contain" />
             </a>
           </div>
         </div>
