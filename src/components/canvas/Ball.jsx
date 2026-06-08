@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -42,18 +42,32 @@ const Ball = ({ imgUrl }) => {
 };
 
 const BallCanvas = ({ icon }) => {
+  const wrapRef = useRef(null);
+  const [inView, setInView] = useState(true);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => setInView(e.isIntersecting),
+      { threshold: 0 }
+    );
+    if (wrapRef.current) obs.observe(wrapRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <Canvas
-      frameloop="always"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+    <div ref={wrapRef} className="w-full h-full">
+      <Canvas
+        frameloop={inView ? "always" : "never"}
+        dpr={[1, Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 2)]}
+        gl={{ preserveDrawingBuffer: true }}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls enableZoom={false} />
+          <Ball imgUrl={icon} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 
