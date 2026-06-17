@@ -11,6 +11,8 @@ import linkedin from "../assets/linkedin.png";
 import leetcode from "../assets/leetcode.png";
 import VisitorCounter from "./VisitorCounter";
 
+// 3D Earthglobe design start here
+
 const EarthCanvas = lazy(() => import("./canvas/Earth"));
 
 const links = {
