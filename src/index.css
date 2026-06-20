@@ -228,18 +228,22 @@ body {
    SCROLLBAR
    ───────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: #050508;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a1a26;
-  border-radius: 4px;
+  background: rgba(0, 245, 212, 0.4);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f5d4;
+  background: rgba(0, 245, 212, 0.7);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 212, 0.4) #050508;
 }
 
 /* Hide horizontal scrollbar in carousels but keep functionality */
@@ -435,5 +439,55 @@ body {
 @media (max-width: 768px) {
   .grid {
     padding: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   STATUS BANNER ping animation
+   ───────────────────────────────────────────── */
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   FEATURED PROJECT GRADIENT (responsive direction)
+   ───────────────────────────────────────────── */
+.featured-overlay-desktop {
+  background: linear-gradient(
+    to right,
+    rgba(5, 5, 8, 0.92) 0%,
+    rgba(5, 5, 8, 0.6) 50%,
+    rgba(5, 5, 8, 0.25) 100%
+  );
+}
+.featured-overlay-mobile {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 8, 0.25) 0%,
+    rgba(5, 5, 8, 0.92) 70%
+  );
+}
+
+/* ─────────────────────────────────────────────
+   WILL-CHANGE on animated cards (scoped, not global)
+   ───────────────────────────────────────────── */
+.project-card,
+.timeline-card {
+  will-change: transform;
+}
+
+/* Force-disable custom cursor on touch devices */
+@media (pointer: coarse) {
+  body,
+  body * {
+    cursor: auto !important;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
   }
 }

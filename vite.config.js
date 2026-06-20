@@ -6,13 +6,14 @@ export default defineConfig({
   plugins: [react()],
   build: {
     target: 'es2020',
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks: {
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei', 'maath'],
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'motion-vendor': ['framer-motion'],
+          'vendor-three': ['three', 'maath'],
+          'vendor-r3f': ['@react-three/fiber', '@react-three/drei'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
         },
       },
     },
