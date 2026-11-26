@@ -5,6 +5,8 @@ import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 
+// Ok Hi
+
 const ServiceCard = ({ index, title, icon }) => {
   return (
     <motion.div
